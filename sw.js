@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-var CACHE_NAME = 'sv-cache-v19';
+var CACHE_NAME = 'sv-cache-v21';
 
 self.addEventListener("install", (ev) => {
     // Perform install steps
@@ -24,4 +24,13 @@ self.addEventListener("activate", (ev) => {
         })
     );
 
+});
+
+self.addEventListener("message", ({ data }) => {
+    console.log("got a message", data);
+    switch(data.action){
+        case "installUpdate": 
+            self.skipWaiting();
+            break;
+    }
 });
