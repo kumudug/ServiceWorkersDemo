@@ -2,7 +2,8 @@
 
 var CACHE_NAME = 'sv-cache-v21';
 
-self.addEventListener("install", (ev) => {
+self.addEventListener("install", (ev) => {	
+    console.log('Installing version - ' + CACHE_NAME);
     // Perform install steps
     ev.waitUntil(
         caches.open(CACHE_NAME)
